@@ -6,8 +6,11 @@ import KryptoBitd from '../abis/KryptoBird.json';
 
 class App extends Component {
 
+    // mount the components (functions in this case)
     async componentDidMount() {
-        await this.loadWeb3(); 
+        await this.loadWeb3();
+        // call the function to be mounted
+        await this.loadBlockChainData(); 
     }
 
     // first up is to detect ethereum provider (metamask)
@@ -26,6 +29,12 @@ class App extends Component {
         } else {
             console.log('No ethereum provider - wallet detected.');
         }
+    }
+
+    async loadBlockChainData() {
+        // initiate the account that are linked in metamask to localhost:3000
+        const accounts = await window.web3.eth.getAccounts();
+        console.log(accounts);
     }
 
     render() {
