@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Web3 from 'web3';
 import detectEthereumProvider from '@metamask/detect-provider';
-import KryptoBitd from '../abis/KryptoBird.json';
+import KryptoBird from '../abis/KryptoBird.json';
 
 
 class App extends Component {
@@ -37,7 +37,10 @@ class App extends Component {
         const accounts = await web3.eth.getAccounts();
         // set the value of the state object - this.state.account
         this.setState({account:accounts});
-        console.log(this.state.account);
+        // get the blockchain network id (in our case is Ganache networkd)
+        const networkId = await web3.eth.net.getId();
+        const networkData = KryptoBird.networks[networkId];
+        console.log(networkData);
     }
 
     // constructors are used in React to handle the State components
@@ -52,10 +55,16 @@ class App extends Component {
     render() {
         return(
             <div>
-                <h1>NFT Marketplace</h1>
-                <h2>The current account linked</h2>
-                {/* display the current account public key */}
-                <p>{this.state.account}</p>
+                <nav className='navbar navbar-dark fix-top bg-dark flex-md-nownap p-0 shadow'>
+                    <div className='navbar-brand col-sm-3 col-md-3 mr-0' style={{font:'white'}}>
+                        KryptoBirdz NFTs (Non Fungible Tokens)
+                    </div>
+                    <ul className='navbar-nav px3'>
+                        <li className='nav-item text-nowrap d-none d-sm-none d-sm-block mr-2'>
+                            <small className='text-white'>{this.state.account}</small>
+                        </li>
+                    </ul>
+                </nav>
             </div>
         )
     }  
