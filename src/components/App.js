@@ -40,7 +40,16 @@ class App extends Component {
         // get the blockchain network id (in our case is Ganache networkd)
         const networkId = await web3.eth.net.getId();
         const networkData = KryptoBird.networks[networkId];
-        console.log(networkData);
+        if (networkData){
+            // get the jsonInterface for this contract
+            const abi = KryptoBird.abi;
+            // get the contract address
+            const address = networkData.address;
+            // instantiate a new object Contract
+            const contract = new web3.eth.Contract(abi, address);
+            // display it on the console
+            console.log(contract);
+        }
     }
 
     // constructors are used in React to handle the State components
