@@ -47,8 +47,27 @@ class App extends Component {
             const address = networkData.address;
             // instantiate a new object Contract
             const contract = new web3.eth.Contract(abi, address);
+            this.setState({contract}); // the same as {{contract: contract}}
             // display it on the console
-            console.log(contract);
+            console.log(this.state.contract);
+
+            // call the total supply for this contract
+            const totalSupply = await contract.methods.totalSupply().call();
+            this.setState({totalSupply});
+            console.log('Total Supply: ', this.state.totalSupply);
+
+            // setup an array to keep track of tokens
+            for(let i=1; i<=totalSupply; i++){
+                const kBird = await contract.methods.kryptoBirdz(i-1).call();
+                this.setState({
+                    kBirdz:[...this.state.kBirdz, kBird]
+                });
+            }
+            console.log('kBirdz', this.state.kBirdz);
+
+
+        } else {
+            window.alert('Smart contract not deployed.');
         }
     }
 
@@ -57,7 +76,10 @@ class App extends Component {
         super(props);
         // initialize the state object with name this.state.account
         this.state = {
-            account: ''
+            account: '',
+            contract: null,
+            totalSupply: 0,
+            kBirdz:[]
         }
     }
 
