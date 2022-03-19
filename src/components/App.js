@@ -16,7 +16,6 @@ class App extends Component {
     // first up is to detect ethereum provider (metamask)
     async loadWeb3() {
         const provider = await detectEthereumProvider();
-
         // modern browsers
         // if there is a browser provider
         // lets log that it's working
@@ -31,20 +30,35 @@ class App extends Component {
         }
     }
 
+    // get the current account (link to metamask) public key
     async loadBlockChainData() {
+        const web3 = window.web3;
         // initiate the account that are linked in metamask to localhost:3000
-        const accounts = await window.web3.eth.getAccounts();
-        console.log(accounts);
+        const accounts = await web3.eth.getAccounts();
+        // set the value of the state object - this.state.account
+        this.setState({account:accounts});
+        console.log(this.state.account);
+    }
+
+    // constructors are used in React to handle the State components
+    constructor(props) {
+        super(props);
+        // initialize the state object with name this.state.account
+        this.state = {
+            account: ''
+        }
     }
 
     render() {
         return(
             <div>
                 <h1>NFT Marketplace</h1>
+                <h2>The current account linked</h2>
+                {/* display the current account public key */}
+                <p>{this.state.account}</p>
             </div>
         )
-    }
-    
+    }  
 }
 
 
