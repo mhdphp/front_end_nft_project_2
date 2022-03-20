@@ -71,6 +71,16 @@ class App extends Component {
         }
     }
 
+    // with minting we are sending information and we need to specify the account
+    mint = (kBirdToBeMint) => {
+        this.state.contract.methods.mint(kBirdToBeMint).send({from:this.state.account})
+        .once('receipt', (receipt) =>{
+            this.setState({
+                kBirdz:[...this.state.kBirdz, kBirdToBeMint]
+            });
+        });
+    }
+
     // constructors are used in React to handle the State components
     constructor(props) {
         super(props);
