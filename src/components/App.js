@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import Web3 from 'web3';
 import detectEthereumProvider from '@metamask/detect-provider';
 import KryptoBird from '../abis/KryptoBird.json';
+import {MDBCard, MDBCardBody, MDBCardTitle, 
+    MDBCardText, MDBCardImage, MDBBtn} from 'mdb-react-ui-kit';
+import './App.css';
 
 
 class App extends Component {
@@ -115,7 +118,7 @@ class App extends Component {
 
     render() {
         return(
-            <div>
+            <div className='container-filled'>
                 {console.log(this.state.kBirdz)}
                 <nav className='navbar navbar-dark fix-top bg-dark flex-md-nownap p-0 shadow'>
                     <div className='navbar-brand col-sm-3 col-md-3 mr-0' style={{font:'white'}}>
@@ -147,6 +150,24 @@ class App extends Component {
                                 </form>
                             </div>
                         </main>
+                    </div>
+                    <hr />
+                    <div className='row textCenter'>
+                        {this.state.kBirdz.map((kB, key) =>{
+                            return(
+                            <div className='card-container'>
+                                    <MDBCard className='token image' style={{maxWidth:'10rem'}}>
+                                        <MDBCardTitle>KryptoBirdz</MDBCardTitle>
+                                        <MDBCardImage src={kB} position='top' style={{marginRight:'4px'}}/>
+                                        <MDBCardBody>
+                                            <MDBCardText>
+                                                <p style={{fontSize:'.85rem'}}>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
+                                            </MDBCardText>
+                                        </MDBCardBody>
+                                    </MDBCard>
+                            </div>
+                            )
+                        })}
                     </div>
                 </div>
             </div>
