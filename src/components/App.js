@@ -26,7 +26,7 @@ class App extends Component {
             window.web3 = new Web3(provider);
             await window.ethereum.enable(); 
         } else {
-            console.log('No ethereum provider - wallet detected.');
+            //console.log('No ethereum provider - wallet detected.');
         }
     }
 
@@ -36,7 +36,7 @@ class App extends Component {
         // initiate the account that are linked in metamask to localhost:3000
         const accounts = await web3.eth.getAccounts();
         // set the value of the state object - this.state.account
-        this.setState({account:accounts});
+        this.setState({account:accounts[0]});
         // get the blockchain network id (in our case is Ganache networkd)
         const networkId = await web3.eth.net.getId();
         const networkData = KryptoBird.networks[networkId];
@@ -49,12 +49,12 @@ class App extends Component {
             const contract = new web3.eth.Contract(abi, address);
             this.setState({contract}); // the same as {{contract: contract}}
             // display it on the console
-            console.log(this.state.contract);
+            //console.log(this.state.contract);
 
             // call the total supply for this contract
             const totalSupply = await contract.methods.totalSupply().call();
             this.setState({totalSupply});
-            console.log('Total Supply: ', this.state.totalSupply);
+            //console.log('Total Supply: ', this.state.totalSupply);
 
             // setup an array to keep track of tokens
             for(let i=1; i<=totalSupply; i++){
@@ -63,7 +63,7 @@ class App extends Component {
                     kBirdz:[...this.state.kBirdz, kBird]
                 });
             }
-            console.log('kBirdz', this.state.kBirdz);
+            //console.log('kBirdz', this.state.kBirdz);
 
 
         } else {
@@ -81,6 +81,11 @@ class App extends Component {
         });
     }
 
+    testFunc = (arg) =>{
+        const result = arg;
+        console.log(result);
+    }
+
     // constructors are used in React to handle the State components
     constructor(props) {
         super(props);
@@ -91,7 +96,22 @@ class App extends Component {
             totalSupply: 0,
             kBirdz:[]
         }
+
+        // in order these functions to be called inside the class APP
+        this.testFunc = this.testFunc.bind(this); // for testing
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.mint = this.mint.bind(this);
     }
+
+    handleSubmit(event) {
+        //alert('An essay was submitted: ' + this.state.value);
+        event.preventDefault();
+        const kBirdFileLoc = event.target.fileLoc.value;
+        this.mint(kBirdFileLoc);
+        console.log(kBirdFileLoc);
+        // this.testFunc('sarmale');
+      }
+
 
     render() {
         return(
@@ -106,6 +126,28 @@ class App extends Component {
                         </li>
                     </ul>
                 </nav>
+                {/* form for minting*/}
+                <div className='container-fluid mt-1'>
+                    <div className='row'>
+                        <main role='main' className='col-lg-12 d-flex text-center'>
+                            <div className='content mr-auto ml-auto' style={{opacity:'0.8'}}>
+                                <h2>KryptoBirdz - NFT Marketplace</h2>
+                                <form onSubmit={this.handleSubmit} className='mb-2'>
+                                    <input 
+                                        type="text" 
+                                        placeholder='File location' 
+                                        className='form-control mb-1'
+                                        name='fileLoc'/>
+
+                                    <input 
+                                        className='btn btn-primary btn-black' 
+                                        type="submit" 
+                                        value='MINT' />
+                                </form>
+                            </div>
+                        </main>
+                    </div>
+                </div>
             </div>
         )
     }  
