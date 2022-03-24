@@ -30,20 +30,20 @@
   "sourceMap": "",
   "deployedSourceMap": "",
   "source": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.0;\n\ninterface IERC165 {\n    /// @notice Query if a contract implements an interface\n    /// @param interfaceID The interface identifier, as specified in ERC-165\n    /// @dev Interface identification is specified in ERC-165. This function\n    ///  uses less than 30,000 gas.\n    /// @return `true` if the contract implements `interfaceID` and\n    ///  `interfaceID` is not 0xffffffff, `false` otherwise\n    function supportsInterface(bytes4 interfaceID) external view returns (bool);\n}",
-  "sourcePath": "F:\\Crypto Courses\\The Complete NFT Web Development Course - Zero To Expert\\Project NFT\\Front-End-Project-NFT\\src\\contracts\\interfaces\\IERC165.sol",
+  "sourcePath": "F:/Crypto Courses/The Complete NFT Web Development Course - Zero To Expert/Project NFT/Front-End-Project-NFT/src/contracts/interfaces/IERC165.sol",
   "ast": {
     "absolutePath": "/F/Crypto Courses/The Complete NFT Web Development Course - Zero To Expert/Project NFT/Front-End-Project-NFT/src/contracts/interfaces/IERC165.sol",
     "exportedSymbols": {
       "IERC165": [
-        65
+        10
       ]
     },
-    "id": 66,
+    "id": 11,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 56,
+        "id": 1,
         "literals": [
           "solidity",
           "^",
@@ -51,7 +51,7 @@
           ".0"
         ],
         "nodeType": "PragmaDirective",
-        "src": "32:23:1"
+        "src": "32:23:0"
       },
       {
         "abstract": false,
@@ -60,42 +60,42 @@
         "contractDependencies": [],
         "contractKind": "interface",
         "fullyImplemented": false,
-        "id": 65,
+        "id": 10,
         "linearizedBaseContracts": [
-          65
+          10
         ],
         "name": "IERC165",
-        "nameLocation": "67:7:1",
+        "nameLocation": "67:7:0",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "documentation": {
-              "id": 57,
+              "id": 2,
               "nodeType": "StructuredDocumentation",
-              "src": "81:373:1",
+              "src": "81:373:0",
               "text": "@notice Query if a contract implements an interface\n @param interfaceID The interface identifier, as specified in ERC-165\n @dev Interface identification is specified in ERC-165. This function\n  uses less than 30,000 gas.\n @return `true` if the contract implements `interfaceID` and\n  `interfaceID` is not 0xffffffff, `false` otherwise"
             },
             "functionSelector": "01ffc9a7",
-            "id": 64,
+            "id": 9,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "supportsInterface",
-            "nameLocation": "468:17:1",
+            "nameLocation": "468:17:0",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 60,
+              "id": 5,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 59,
+                  "id": 4,
                   "mutability": "mutable",
                   "name": "interfaceID",
-                  "nameLocation": "493:11:1",
+                  "nameLocation": "493:11:0",
                   "nodeType": "VariableDeclaration",
-                  "scope": 64,
-                  "src": "486:18:1",
+                  "scope": 9,
+                  "src": "486:18:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -103,10 +103,10 @@
                     "typeString": "bytes4"
                   },
                   "typeName": {
-                    "id": 58,
+                    "id": 3,
                     "name": "bytes4",
                     "nodeType": "ElementaryTypeName",
-                    "src": "486:6:1",
+                    "src": "486:6:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes4",
                       "typeString": "bytes4"
@@ -115,21 +115,21 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "485:20:1"
+              "src": "485:20:0"
             },
             "returnParameters": {
-              "id": 63,
+              "id": 8,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 62,
+                  "id": 7,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 64,
-                  "src": "529:4:1",
+                  "scope": 9,
+                  "src": "529:4:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -137,10 +137,10 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 61,
+                    "id": 6,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "529:4:1",
+                    "src": "529:4:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -149,35 +149,35 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "528:6:1"
+              "src": "528:6:0"
             },
-            "scope": 65,
-            "src": "459:76:1",
+            "scope": 10,
+            "src": "459:76:0",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           }
         ],
-        "scope": 66,
-        "src": "57:480:1",
+        "scope": 11,
+        "src": "57:480:0",
         "usedErrors": []
       }
     ],
-    "src": "32:505:1"
+    "src": "32:505:0"
   },
   "legacyAST": {
     "absolutePath": "/F/Crypto Courses/The Complete NFT Web Development Course - Zero To Expert/Project NFT/Front-End-Project-NFT/src/contracts/interfaces/IERC165.sol",
     "exportedSymbols": {
       "IERC165": [
-        65
+        10
       ]
     },
-    "id": 66,
+    "id": 11,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 56,
+        "id": 1,
         "literals": [
           "solidity",
           "^",
@@ -185,7 +185,7 @@
           ".0"
         ],
         "nodeType": "PragmaDirective",
-        "src": "32:23:1"
+        "src": "32:23:0"
       },
       {
         "abstract": false,
@@ -194,42 +194,42 @@
         "contractDependencies": [],
         "contractKind": "interface",
         "fullyImplemented": false,
-        "id": 65,
+        "id": 10,
         "linearizedBaseContracts": [
-          65
+          10
         ],
         "name": "IERC165",
-        "nameLocation": "67:7:1",
+        "nameLocation": "67:7:0",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "documentation": {
-              "id": 57,
+              "id": 2,
               "nodeType": "StructuredDocumentation",
-              "src": "81:373:1",
+              "src": "81:373:0",
               "text": "@notice Query if a contract implements an interface\n @param interfaceID The interface identifier, as specified in ERC-165\n @dev Interface identification is specified in ERC-165. This function\n  uses less than 30,000 gas.\n @return `true` if the contract implements `interfaceID` and\n  `interfaceID` is not 0xffffffff, `false` otherwise"
             },
             "functionSelector": "01ffc9a7",
-            "id": 64,
+            "id": 9,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "supportsInterface",
-            "nameLocation": "468:17:1",
+            "nameLocation": "468:17:0",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 60,
+              "id": 5,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 59,
+                  "id": 4,
                   "mutability": "mutable",
                   "name": "interfaceID",
-                  "nameLocation": "493:11:1",
+                  "nameLocation": "493:11:0",
                   "nodeType": "VariableDeclaration",
-                  "scope": 64,
-                  "src": "486:18:1",
+                  "scope": 9,
+                  "src": "486:18:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -237,10 +237,10 @@
                     "typeString": "bytes4"
                   },
                   "typeName": {
-                    "id": 58,
+                    "id": 3,
                     "name": "bytes4",
                     "nodeType": "ElementaryTypeName",
-                    "src": "486:6:1",
+                    "src": "486:6:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes4",
                       "typeString": "bytes4"
@@ -249,21 +249,21 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "485:20:1"
+              "src": "485:20:0"
             },
             "returnParameters": {
-              "id": 63,
+              "id": 8,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 62,
+                  "id": 7,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 64,
-                  "src": "529:4:1",
+                  "scope": 9,
+                  "src": "529:4:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -271,10 +271,10 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 61,
+                    "id": 6,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "529:4:1",
+                    "src": "529:4:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -283,21 +283,21 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "528:6:1"
+              "src": "528:6:0"
             },
-            "scope": 65,
-            "src": "459:76:1",
+            "scope": 10,
+            "src": "459:76:0",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           }
         ],
-        "scope": 66,
-        "src": "57:480:1",
+        "scope": 11,
+        "src": "57:480:0",
         "usedErrors": []
       }
     ],
-    "src": "32:505:1"
+    "src": "32:505:0"
   },
   "compiler": {
     "name": "solc",
@@ -305,7 +305,7 @@
   },
   "networks": {},
   "schemaVersion": "3.3.4",
-  "updatedAt": "2022-03-21T18:03:17.493Z",
+  "updatedAt": "2022-03-24T10:46:56.950Z",
   "devdoc": {
     "kind": "dev",
     "methods": {
