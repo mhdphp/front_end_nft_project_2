@@ -3,6 +3,8 @@ pragma solidity ^0.8.0;
 
 import './ERC165.sol';
 import './interfaces/IERC721.sol';
+// don't need to import SafeMath.sol, as this library is inherited in Counters.sol
+import './libraries/Counters.sol'; 
 
     /*
 
@@ -16,7 +18,10 @@ import './interfaces/IERC721.sol';
 
     */
 
-contract ERC721 is ERC165, IERC721 { 
+contract ERC721 is ERC165, IERC721 {
+    // inherited the library Counters.Counter, SafeMath
+    using SafeMath for uint256;
+    using Counters for Counters.Counter;
 
     // mapping in solidity creates a hash table of key pair values
    
@@ -24,7 +29,9 @@ contract ERC721 is ERC165, IERC721 {
     mapping(uint256 => address) private _tokenOwner; 
 
     // Mapping from owner to number of owned tokens 
-    mapping(address => uint256) private _OwnedTokensCount;
+    //mapping(address => uint256) private _OwnedTokensCount;
+    // replace with
+    mapping(address => Counters.Counter) private _OwnedTokensCount;
 
     // Mapping from token id to approved addresses
     mapping(uint256 => address) private _tokenApprovals; 
@@ -46,10 +53,10 @@ contract ERC721 is ERC165, IERC721 {
         _registerInterface(bytes4(keccak256('balanceOf(bytes4)')^
         keccak256('ownerOf(bytes4)')^keccak256('transferFrom(bytes4)')));
     }
-
+        // we find the current balanceOf
         function balanceOf(address _owner) public override view returns(uint256) {
             require(_owner != address(0), 'owner query for non-existent token');
-            return _OwnedTokensCount[_owner];
+            return _OwnedTokensCount[_owner].current();
         }
 
     /// @notice Find the owner of an NFT
@@ -82,7 +89,7 @@ contract ERC721 is ERC165, IERC721 {
         // we are adding a new address with a token id for minting
         _tokenOwner[tokenId] = to; 
         // keeping track of each address that is minting and adding one to the count
-        _OwnedTokensCount[to] += 1;  
+        _OwnedTokensCount[to].increment();  
 
         emit Transfer(address(0), to, tokenId);
     }
@@ -101,8 +108,8 @@ contract ERC721 is ERC165, IERC721 {
         require(_to != address(0), 'Error - ERC721 Transfer to the zero address');
         require(ownerOf(_tokenId) == _from, 'Trying to transfer a token the address does not own!');
 
-        _OwnedTokensCount[_from] -= 1;
-        _OwnedTokensCount[_to] += 1;
+        _OwnedTokensCount[_from].decrement();
+        _OwnedTokensCount[_to].increment();
 
         _tokenOwner[_tokenId] = _to;
 
